@@ -1,0 +1,526 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Q1 2026 Spending</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&display=swap">
+<style>
+  :root {
+    --page: #ffffff;
+    --surface: #ffffff;
+    --border: #dde4ee;
+    --text-primary: #0e1726;
+    --text-secondary: #3d4b60;
+    --text-muted: #687689;
+    --grid: #e6ebf2;
+    --bar: #2a78d6;
+    --series-1: #104281;
+    --series-2: #1c5cab;
+    --series-3: #2a78d6;
+    --series-4: #5598e7;
+    --series-5: #86b6ef;
+    --row-hover: #f0f4fa;
+    --focus: #2a78d6;
+    --shadow: rgba(15, 40, 80, 0.14);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      color-scheme: dark;
+      --page: #0a0c10;
+      --surface: #12151b;
+      --border: #272d38;
+      --text-primary: #f1f4f9;
+      --text-secondary: #b9c3d2;
+      --text-muted: #8a95a7;
+      --grid: #20252f;
+      --bar: #3987e5;
+      --series-1: #9ec5f4;
+      --series-2: #6da7ec;
+      --series-3: #3987e5;
+      --series-4: #256abf;
+      --series-5: #184f95;
+      --row-hover: #1a1f28;
+      --focus: #6da7ec;
+      --shadow: rgba(0, 0, 0, 0.5);
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --page: #0a0c10;
+    --surface: #12151b;
+    --border: #272d38;
+    --text-primary: #f1f4f9;
+    --text-secondary: #b9c3d2;
+    --text-muted: #8a95a7;
+    --grid: #20252f;
+    --bar: #3987e5;
+    --series-1: #9ec5f4;
+    --series-2: #6da7ec;
+    --series-3: #3987e5;
+    --series-4: #256abf;
+    --series-5: #184f95;
+    --row-hover: #1a1f28;
+    --focus: #6da7ec;
+    --shadow: rgba(0, 0, 0, 0.5);
+  }
+
+  /* The dashboard's own toggle; declared last so it wins over the viewer's theme */
+  :root[data-mode="light"] {
+    color-scheme: light;
+    --page: #ffffff;
+    --surface: #ffffff;
+    --border: #dde4ee;
+    --text-primary: #0e1726;
+    --text-secondary: #3d4b60;
+    --text-muted: #687689;
+    --grid: #e6ebf2;
+    --bar: #2a78d6;
+    --series-1: #104281;
+    --series-2: #1c5cab;
+    --series-3: #2a78d6;
+    --series-4: #5598e7;
+    --series-5: #86b6ef;
+    --row-hover: #f0f4fa;
+    --focus: #2a78d6;
+    --shadow: rgba(15, 40, 80, 0.14);
+  }
+  :root[data-mode="dark"] {
+    color-scheme: dark;
+    --page: #0a0c10;
+    --surface: #12151b;
+    --border: #272d38;
+    --text-primary: #f1f4f9;
+    --text-secondary: #b9c3d2;
+    --text-muted: #8a95a7;
+    --grid: #20252f;
+    --bar: #3987e5;
+    --series-1: #9ec5f4;
+    --series-2: #6da7ec;
+    --series-3: #3987e5;
+    --series-4: #256abf;
+    --series-5: #184f95;
+    --row-hover: #1a1f28;
+    --focus: #6da7ec;
+    --shadow: rgba(0, 0, 0, 0.5);
+  }
+
+  body {
+    background: var(--page);
+    color: var(--text-primary);
+    font-family: "Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+    padding-inline: 16px;
+    padding-block: 32px 48px;
+  }
+  .wrap { max-width: 1040px; margin-inline: auto; display: flex; flex-direction: column; gap: 20px; }
+
+  .eyebrow {
+    font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--text-muted);
+  }
+  h1 { margin: 0; font-size: 28px; font-weight: 700; line-height: 1.2; text-wrap: balance; }
+  .sub { margin: 0; color: var(--text-secondary); }
+
+  .tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+  .tile {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+    padding: 16px 18px; display: flex; flex-direction: column; gap: 6px;
+  }
+  .tile-label { font-size: 13px; font-weight: 500; color: var(--text-secondary); }
+  .tile-value {
+    font-size: 30px; font-weight: 700; line-height: 1.1; letter-spacing: -0.01em;
+    font-variant-numeric: tabular-nums;
+  }
+  .tile-note { font-size: 13px; color: var(--text-muted); font-variant-numeric: tabular-nums; }
+
+  .charts { display: grid; grid-template-columns: 1.25fr 1fr; gap: 12px; }
+  @media (max-width: 760px) { .charts { grid-template-columns: 1fr; } }
+
+  .panel {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+    padding: 18px; display: flex; flex-direction: column; gap: 12px; min-width: 0;
+  }
+  .panel h2 { margin: 0; font-size: 16px; font-weight: 600; }
+  .panel .hint { margin: 0; font-size: 13px; color: var(--text-muted); }
+  .chart-box { width: 100%; height: 280px; flex: 1 1 auto; }
+  @media (min-width: 761px) { .chart-box { height: auto; min-height: 280px; } }
+
+  .donut-layout { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; }
+  .donut-box { flex: 1 1 100%; height: 240px; min-width: 0; position: relative; }
+  .donut-center {
+    position: absolute; inset: 0; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; pointer-events: none; text-align: center;
+  }
+  .donut-center strong { font-size: 20px; font-variant-numeric: tabular-nums; }
+  .donut-center span { font-size: 12px; color: var(--text-muted); }
+
+  .legend { flex: 1 1 180px; list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 2px; }
+  .legend li {
+    display: grid; grid-template-columns: 12px 1fr auto; align-items: center; gap: 10px;
+    padding: 6px 8px; border-radius: 8px; font-size: 14px;
+  }
+  .legend li.active { background: var(--row-hover); }
+  .swatch { width: 12px; height: 12px; border-radius: 3px; }
+  .legend .amt { white-space: nowrap; font-variant-numeric: tabular-nums; color: var(--text-secondary); text-align: right; }
+  .legend .amt b { color: var(--text-primary); font-weight: 600; }
+
+  .tip {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 8px;
+    padding: 8px 10px; box-shadow: 0 6px 18px var(--shadow);
+    font-size: 13px; color: var(--text-primary); font-variant-numeric: tabular-nums;
+    display: flex; flex-direction: column; gap: 2px; min-width: 150px;
+  }
+  .tip-title { font-weight: 600; display: flex; align-items: center; gap: 6px; }
+  .tip-row { color: var(--text-secondary); display: flex; justify-content: space-between; gap: 12px; }
+  .tip-row b { color: var(--text-primary); font-weight: 600; }
+
+  .table-wrap { overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; font-variant-numeric: tabular-nums; }
+  th {
+    text-align: left; font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--text-muted); padding: 8px 10px; border-bottom: 1px solid var(--border); white-space: nowrap;
+  }
+  td { padding: 8px 10px; border-bottom: 1px solid var(--border); white-space: nowrap; }
+  tbody tr:hover { background: var(--row-hover); }
+  td.num, th.num { text-align: right; }
+  td.notes { color: var(--text-secondary); white-space: normal; }
+  .cat { display: inline-flex; align-items: center; gap: 8px; }
+  .cat .swatch { width: 10px; height: 10px; }
+
+  .top { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px; }
+  .heading { display: flex; flex-direction: column; gap: 4px; }
+  .toolbar { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 10px; }
+  .control { display: flex; flex-direction: column; gap: 6px; }
+  .theme-toggle {
+    display: inline-flex; align-items: center; gap: 8px; height: 42px;
+    font: inherit; font-size: 14px; font-weight: 500; color: var(--text-primary);
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    padding: 0 14px; cursor: pointer;
+  }
+  .theme-toggle:hover { border-color: var(--text-muted); background: var(--row-hover); }
+  .theme-toggle:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+  .theme-toggle svg { width: 18px; height: 18px; flex: none; }
+  .control label {
+    font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted);
+  }
+  .select-wrap { position: relative; }
+  .select-wrap::after {
+    content: ""; position: absolute; right: 14px; top: 50%; width: 8px; height: 8px; margin-top: -6px;
+    border-right: 2px solid var(--text-secondary); border-bottom: 2px solid var(--text-secondary);
+    transform: rotate(45deg); pointer-events: none;
+  }
+  select {
+    appearance: none; -webkit-appearance: none;
+    font: inherit; font-size: 15px; font-weight: 500; color: var(--text-primary);
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    height: 42px; padding: 0 40px 0 14px; min-width: 200px; max-width: 100%; cursor: pointer;
+  }
+  select:hover { border-color: var(--text-muted); }
+  select:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+
+  .recharts-wrapper:focus, .recharts-surface:focus, .recharts-sector:focus, .recharts-rectangle:focus { outline: none; }
+</style>
+
+<div id="root"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.3.1/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.3.1/umd/react-dom.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prop-types/15.8.1/prop-types.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/recharts@2.15.4/umd/Recharts.js"></script>
+<script>
+(function () {
+  const CSV = `date,category,amount_usd,notes
+2026-01-04,Food,42.80,Groceries
+2026-01-07,Transport,18.50,Subway pass top-up
+2026-01-09,Subscriptions,9.99,Streaming
+2026-01-12,Entertainment,24.00,Movie night
+2026-01-15,Utilities,78.40,Electricity
+2026-01-18,Food,31.20,Groceries
+2026-01-22,Transport,12.75,Rideshare
+2026-01-26,Food,58.10,Dinner out
+2026-01-29,Subscriptions,14.99,Cloud storage
+2026-02-02,Utilities,64.20,Internet
+2026-02-05,Food,46.30,Groceries
+2026-02-08,Entertainment,32.00,Concert ticket
+2026-02-11,Transport,22.40,Rideshare
+2026-02-14,Food,72.00,Restaurant
+2026-02-17,Subscriptions,9.99,Streaming
+2026-02-20,Food,38.90,Groceries
+2026-02-23,Utilities,55.80,Electricity
+2026-02-26,Entertainment,18.50,Streaming rental
+2026-03-01,Transport,18.50,Subway pass top-up
+2026-03-04,Food,44.60,Groceries
+2026-03-07,Subscriptions,14.99,Cloud storage
+2026-03-10,Entertainment,28.00,Game pass
+2026-03-13,Food,33.10,Groceries
+2026-03-16,Utilities,81.20,Electricity
+2026-03-19,Transport,15.00,Rideshare
+2026-03-22,Food,52.40,Dinner out
+2026-03-25,Entertainment,40.00,Event ticket
+2026-03-28,Food,36.20,Groceries
+2026-03-30,Subscriptions,9.99,Streaming`;
+
+  // Parse exactly the rows above. Amounts are handled in cents to avoid float drift.
+  const rows = CSV.trim().split("\n").slice(1).map(function (line) {
+    const p = line.split(",");
+    return { date: p[0], category: p[1], cents: Math.round(parseFloat(p[2]) * 100), notes: p.slice(3).join(",") };
+  });
+
+  const fmt = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" });
+  const money = function (cents) { return fmt.format(cents / 100); };
+  const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  const monthLong = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  const dateFmt = function (iso) { const d = iso.split("-"); return MONTHS[+d[1] - 1] + " " + (+d[2]) + ", " + d[0]; };
+
+  const allCents = rows.reduce(function (s, r) { return s + r.cents; }, 0);
+  const monthKeys = Array.from(new Set(rows.map(function (r) { return r.date.slice(0, 7); }))).sort();
+  const pct = function (part, whole) { return whole ? (part / whole * 100).toFixed(1) + "%" : "0.0%"; };
+
+  // Group rows by a key, largest total first
+  function groupBy(list, keyFn) {
+    const map = new Map();
+    list.forEach(function (r) {
+      const k = keyFn(r);
+      const g = map.get(k) || { name: k, cents: 0, count: 0 };
+      g.cents += r.cents; g.count += 1; map.set(k, g);
+    });
+    return Array.from(map.values()).sort(function (a, b) { return b.cents - a.cents || (a.name < b.name ? -1 : 1); });
+  }
+
+  // Category colors are fixed by overall rank, so a category keeps its shade in every view
+  const allCategories = groupBy(rows, function (r) { return r.category; });
+  const slotFor = {}; allCategories.forEach(function (c, i) { slotFor[c.name] = "--series-" + (i + 1); });
+
+  function monthlyFor(list) {
+    return monthKeys.map(function (key) {
+      const inMonth = list.filter(function (r) { return r.date.slice(0, 7) === key; });
+      const cents = inMonth.reduce(function (s, r) { return s + r.cents; }, 0);
+      const mi = +key.slice(5, 7) - 1;
+      return { label: MONTHS[mi], full: monthLong[mi] + " " + key.slice(0, 4), value: cents / 100, cents: cents, count: inMonth.length };
+    });
+  }
+
+  // Round an axis maximum up to a readable step (1, 2, 2.5 or 5 x 10^n), four intervals
+  function niceAxis(maxValue) {
+    const raw = Math.max(maxValue, 1) / 4;
+    const mag = Math.pow(10, Math.floor(Math.log10(raw)));
+    const step = [1, 2, 2.5, 5, 10].map(function (m) { return m * mag; }).find(function (s) { return s >= raw; });
+    let top = step * 4;
+    if (top < maxValue * 1.08) top += step;
+    const ticks = []; for (let v = 0; v <= top + 1e-9; v += step) ticks.push(+v.toFixed(2));
+    return { top: top, ticks: ticks };
+  }
+
+  const h = React.createElement;
+  const R = Recharts;
+
+  function readTokens() {
+    const cs = getComputedStyle(document.documentElement);
+    const get = function (n) { return cs.getPropertyValue(n).trim(); };
+    const t = { surface: get("--surface"), grid: get("--grid"), text: get("--text-secondary"), muted: get("--text-muted"), rowHover: get("--row-hover"), bar: get("--bar") };
+    for (let i = 1; i <= 5; i++) t["--series-" + i] = get("--series-" + i);
+    return t;
+  }
+  function useTokens() {
+    const [tok, setTok] = React.useState(readTokens);
+    React.useEffect(function () {
+      const update = function () { setTok(readTokens()); };
+      const mq = window.matchMedia("(prefers-color-scheme: dark)");
+      if (mq.addEventListener) mq.addEventListener("change", update); else mq.addListener(update);
+      const mo = new MutationObserver(update);
+      mo.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme", "data-mode"] });
+      return function () {
+        if (mq.removeEventListener) mq.removeEventListener("change", update); else mq.removeListener(update);
+        mo.disconnect();
+      };
+    }, []);
+    return tok;
+  }
+
+  function Tile(props) {
+    return h("div", { className: "tile" },
+      h("span", { className: "tile-label" }, props.label),
+      h("span", { className: "tile-value" }, props.value),
+      h("span", { className: "tile-note" }, props.note));
+  }
+
+  function MonthTip(props) {
+    if (!props.active || !props.payload || !props.payload.length) return null;
+    const d = props.payload[0].payload;
+    return h("div", { className: "tip" },
+      h("div", { className: "tip-title" }, d.full),
+      h("div", { className: "tip-row" }, "Spent", h("b", null, money(d.cents))),
+      h("div", { className: "tip-row" }, "Transactions", h("b", null, d.count)),
+      h("div", { className: "tip-row" }, "Share of " + props.scopeLabel, h("b", null, pct(d.cents, props.scopeCents))));
+  }
+
+  function SliceTip(props) {
+    if (!props.active || !props.payload || !props.payload.length) return null;
+    const d = props.payload[0].payload;
+    return h("div", { className: "tip" },
+      h("div", { className: "tip-title" }, h("span", { className: "swatch", style: { background: "var(" + d.slot + ")" } }), d.name),
+      h("div", { className: "tip-row" }, "Spent", h("b", null, money(d.cents))),
+      h("div", { className: "tip-row" }, "Share of " + props.scopeLabel, h("b", null, pct(d.cents, props.scopeCents))),
+      h("div", { className: "tip-row" }, "Transactions", h("b", null, d.count)));
+  }
+
+  function MonthlyChart(props) {
+    const t = props.tok;
+    const data = props.data;
+    const axis = niceAxis(Math.max.apply(null, data.map(function (d) { return d.value; })));
+    return h("section", { className: "panel", "aria-labelledby": "m-title" },
+      h("h2", { id: "m-title" }, props.title),
+      h("div", { className: "chart-box" },
+        h(R.ResponsiveContainer, { width: "100%", height: "100%" },
+          h(R.BarChart, { data: data, margin: { top: 24, right: 8, bottom: 0, left: 0 }, barCategoryGap: "32%" },
+            h(R.CartesianGrid, { vertical: false, stroke: t.grid }),
+            h(R.XAxis, { dataKey: "label", tickLine: false, axisLine: { stroke: t.grid }, tick: { fill: t.text, fontSize: 13 } }),
+            h(R.YAxis, { width: 52, tickLine: false, axisLine: false, tick: { fill: t.muted, fontSize: 12 },
+              tickFormatter: function (v) { return "$" + v; }, domain: [0, axis.top], ticks: axis.ticks, allowDataOverflow: false }),
+            h(R.Tooltip, { content: h(MonthTip, { scopeLabel: props.scopeLabel, scopeCents: props.scopeCents }), cursor: { fill: t.rowHover } }),
+            h(R.Bar, { dataKey: "value", fill: t.bar, radius: [4, 4, 0, 0], maxBarSize: 72, isAnimationActive: false },
+              h(R.LabelList, { dataKey: "cents", position: "top", formatter: money, fill: t.text, fontSize: 13, fontWeight: 600 }))))));
+  }
+
+  function BreakdownChart(props) {
+    const t = props.tok;
+    const slices = props.slices;
+    const [active, setActive] = React.useState(null);
+    return h("section", { className: "panel", "aria-labelledby": "c-title" },
+      h("h2", { id: "c-title" }, props.title),
+      h("div", { className: "donut-layout" },
+        h("div", { className: "donut-box" },
+          h(R.ResponsiveContainer, { width: "100%", height: "100%" },
+            h(R.PieChart, null,
+              h(R.Tooltip, { content: h(SliceTip, { scopeLabel: props.scopeLabel, scopeCents: props.scopeCents }) }),
+              h(R.Pie, {
+                data: slices, dataKey: "value", nameKey: "name", innerRadius: "62%", outerRadius: "92%",
+                startAngle: 90, endAngle: -270, stroke: t.surface, strokeWidth: slices.length > 1 ? 2 : 0, isAnimationActive: false,
+                onMouseEnter: function (_, i) { setActive(i); }, onMouseLeave: function () { setActive(null); }
+              }, slices.map(function (s) { return h(R.Cell, { key: s.name, fill: t[s.slot] }); })))),
+          h("div", { className: "donut-center" }, h("strong", null, money(props.scopeCents)), h("span", null, props.centerLabel))),
+        h("ul", { className: "legend", "aria-label": props.title },
+          slices.map(function (s, i) {
+            return h("li", { key: s.name, className: active === i ? "active" : "" },
+              h("span", { className: "swatch", style: { background: "var(" + s.slot + ")" } }),
+              h("span", null, s.name),
+              h("span", { className: "amt" }, h("b", null, money(s.cents)), " · " + pct(s.cents, props.scopeCents)));
+          }))));
+  }
+
+  function Transactions(props) {
+    const shown = props.rows;
+    return h("section", { className: "panel", "aria-labelledby": "t-title" },
+      h("h2", { id: "t-title" }, props.title),
+      h("p", { className: "hint" }, shown.length + " of " + rows.length + " transactions · " + money(props.scopeCents)),
+      h("div", { className: "table-wrap" },
+        h("table", null,
+          h("thead", null, h("tr", null, h("th", null, "Date"), h("th", null, "Category"), h("th", null, "Notes"), h("th", { className: "num" }, "Amount"))),
+          h("tbody", null, shown.map(function (r) {
+            return h("tr", { key: r.date + r.category + r.cents },
+              h("td", null, dateFmt(r.date)),
+              h("td", null, h("span", { className: "cat" }, h("span", { className: "swatch", style: { background: "var(" + slotFor[r.category] + ")" } }), r.category)),
+              h("td", { className: "notes" }, r.notes),
+              h("td", { className: "num" }, money(r.cents)));
+          })))));
+  }
+
+  function currentMode() {
+    const root = document.documentElement;
+    const own = root.getAttribute("data-mode");
+    if (own === "light" || own === "dark") return own;
+    const host = root.getAttribute("data-theme");
+    if (host === "light" || host === "dark") return host;
+    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  }
+
+  const sunIcon = h("svg", { viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: 2, strokeLinecap: "round", "aria-hidden": "true" },
+    h("circle", { cx: 12, cy: 12, r: 4 }),
+    h("path", { d: "M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" }));
+  const moonIcon = h("svg", { viewBox: "0 0 24 24", fill: "none", stroke: "currentColor", strokeWidth: 2, strokeLinecap: "round", strokeLinejoin: "round", "aria-hidden": "true" },
+    h("path", { d: "M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" }));
+
+  function ThemeToggle() {
+    const [mode, setMode] = React.useState(currentMode);
+    React.useEffect(function () {
+      // Until the toggle is used, follow the viewer's theme
+      const sync = function () { setMode(currentMode()); };
+      const mq = window.matchMedia("(prefers-color-scheme: dark)");
+      if (mq.addEventListener) mq.addEventListener("change", sync); else mq.addListener(sync);
+      const mo = new MutationObserver(sync);
+      mo.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+      return function () {
+        if (mq.removeEventListener) mq.removeEventListener("change", sync); else mq.removeListener(sync);
+        mo.disconnect();
+      };
+    }, []);
+    const next = mode === "dark" ? "light" : "dark";
+    return h("button", {
+      type: "button", id: "theme-toggle", className: "theme-toggle",
+      "aria-label": "Switch to " + next + " mode", title: "Switch to " + next + " mode",
+      onClick: function () {
+        document.documentElement.setAttribute("data-mode", next);
+        setMode(next);
+      }
+    }, next === "dark" ? moonIcon : sunIcon, next === "dark" ? "Dark mode" : "Light mode");
+  }
+
+  function App() {
+    const tok = useTokens();
+    const [category, setCategory] = React.useState("All");
+    const isAll = category === "All";
+
+    const view = React.useMemo(function () {
+      const list = isAll ? rows : rows.filter(function (r) { return r.category === category; });
+      const scopeCents = list.reduce(function (s, r) { return s + r.cents; }, 0);
+      const monthly = monthlyFor(list);
+      let slices;
+      if (isAll) {
+        slices = allCategories.map(function (c) { return Object.assign({}, c, { value: c.cents / 100, slot: slotFor[c.name] }); });
+      } else {
+        // Within one category, break spending down by the notes column
+        slices = groupBy(list, function (r) { return r.notes; }).map(function (g, i) {
+          return Object.assign({}, g, { value: g.cents / 100, slot: "--series-" + Math.min(i + 1, 5) });
+        });
+      }
+      const topMonth = monthly.slice().sort(function (a, b) { return b.cents - a.cents; })[0];
+      return { list: list, scopeCents: scopeCents, monthly: monthly, slices: slices, topMonth: topMonth };
+    }, [category]);
+
+    const scopeLabel = isAll ? "total" : category;
+    const tiles = isAll ? [
+      h(Tile, { key: "a", label: "Total spending", value: money(view.scopeCents), note: "Across " + monthKeys.length + " months" }),
+      h(Tile, { key: "b", label: "Transactions", value: String(view.list.length), note: "Average " + money(Math.round(view.scopeCents / view.list.length)) + " each" }),
+      h(Tile, { key: "c", label: "Top category", value: allCategories[0].name, note: money(allCategories[0].cents) + " · " + pct(allCategories[0].cents, allCents) + " of total" })
+    ] : [
+      h(Tile, { key: "a", label: category + " spending", value: money(view.scopeCents), note: pct(view.scopeCents, allCents) + " of all spending" }),
+      h(Tile, { key: "b", label: "Transactions", value: String(view.list.length), note: "Average " + money(Math.round(view.scopeCents / view.list.length)) + " each" }),
+      h(Tile, { key: "c", label: "Top month", value: view.topMonth.full.split(" ")[0], note: money(view.topMonth.cents) + " · " + pct(view.topMonth.cents, view.scopeCents) + " of " + category })
+    ];
+
+    return h("div", { className: "wrap" },
+      h("header", { className: "top" },
+        h("div", { className: "heading" },
+          h("span", { className: "eyebrow" }, "Personal spending · USD"),
+          h("h1", null, "Q1 2026 Spending"),
+          h("p", { className: "sub" }, dateFmt(rows[0].date) + " to " + dateFmt(rows[rows.length - 1].date))),
+        h("div", { className: "toolbar" },
+        h("div", { className: "control" },
+          h("label", { htmlFor: "category-filter" }, "Category"),
+          h("div", { className: "select-wrap" },
+            h("select", { id: "category-filter", value: category, onChange: function (e) { setCategory(e.target.value); } },
+              h("option", { value: "All" }, "All categories"),
+              allCategories.map(function (c) { return h("option", { key: c.name, value: c.name }, c.name); })))),
+          h(ThemeToggle))),
+      h("div", { className: "tiles" }, tiles),
+      h("div", { className: "charts" },
+        h(MonthlyChart, { tok: tok, data: view.monthly, title: isAll ? "Spending by month" : category + " by month", scopeLabel: scopeLabel, scopeCents: view.scopeCents }),
+        h(BreakdownChart, { key: category, tok: tok, slices: view.slices, title: isAll ? "Spending by category" : category + " by item", centerLabel: isAll ? "total" : category, scopeLabel: scopeLabel, scopeCents: view.scopeCents })),
+      h(Transactions, { rows: view.list, scopeCents: view.scopeCents, title: isAll ? "All transactions" : category + " transactions" }));
+  }
+
+  ReactDOM.createRoot(document.getElementById("root")).render(h(App));
+})();
+</script>
+
+</body></html>
